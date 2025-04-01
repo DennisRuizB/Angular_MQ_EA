@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root'
@@ -66,4 +67,29 @@ export class ApiService {
   searchUsers(criteria: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/search-users`, criteria);
   }
+
+  getAllComments(page: number, limit: number): Observable<any>{
+    const params = { page: page.toString(), limit: limit.toString() };
+    return this.http.get<any>(`${this.apiUrl}/comments`,{params});
+  }
+  
+  getCommetsByText(text: string): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/comments/text/${text}`);
+  }
+
+  createComment(comment: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/comments`, comment);
+  }
+
+  deleteComment(id: string): Observable<any>{
+    return this.http.delete<any>(`${this.apiUrl}/comments/${id}`);
+
+  }
+
+  updateComment(id: string, comment: string): Observable<any> {
+    const body = { comment: comment };
+    return this.http.put<any>(`${this.apiUrl}/comments/${id}`, body);
+  }
+  
+
 }

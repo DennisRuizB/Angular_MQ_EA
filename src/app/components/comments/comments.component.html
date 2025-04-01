@@ -1,0 +1,68 @@
+<button (click)="onHome()">Home</button>
+<input 
+    type="text" 
+    placeholder="Buscar..." 
+    [(ngModel)]="searchText" 
+    (ngModelChange)="onSearchChange(searchText)" 
+    class="search-input"
+/>
+
+<table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>OrderId</th>
+        <th>UserOfUser</th>
+        <th>Commeny</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment._id }}</td>
+        <td>{{ comment.order_id._id }}</td>
+        <td>{{ comment.order_id.user_id }}</td>
+        <td>
+          <div *ngIf="!comment.isEditing; else editMode" (click)="enableEdit(comment)">
+            {{ comment.comment }}
+          </div>
+          <ng-template #editMode>
+            <input 
+              type="text" 
+              [(ngModel)]="comment.comment" 
+              (blur)="saveComponent(comment,comment._id,comment.comment)" 
+              (keydown.enter)="saveComponent(comment,comment._id,comment.comment)" 
+              class="editable-input"
+            />
+          </ng-template>
+        </td>
+        <td>{{ comment.date }}</td>
+        <td>
+          <div class="button-container">
+            <button (click)="deleteComment(comment._id)">Eliminar</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<div class="pagination-controls">
+  <label for="rowsPerPage">Rows per page:</label>
+  <select id="rowsPerPage" (change)="changeRowsPerPage($event)">
+    <option *ngFor="let option of rowsPerPageOptions" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <button (click)="changePageToFirst()">«</button>
+  <button (click)="changePage(-1)" [disabled]="currentPage === 1">‹</button>
+  <span>Page {{ currentPage }}</span>
+  <button (click)="changePage(1)">›</button>
+  <button (click)="changePageToLast()">»</button>
+</div>
+<div>
+  <button class="create-user-button" (click)="openCreateCommentModal()">
+    Crear Comment
+  </button>
+</div>

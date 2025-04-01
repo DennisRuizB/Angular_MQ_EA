@@ -7,6 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductComponent } from './components/product/product.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,7 +17,8 @@ export const routes: Routes = [
   {path: 'profile/:id', component: ProfileComponent},
   { path: 'home', component: HomeComponent },
   { path: 'product/:id', component: ProductComponent },
-  { path: 'createuser', component: CreateUserComponent }
+  { path: 'createuser', component: CreateUserComponent },
+  { path: 'comments', component: CommentsComponent}
   // Altres rutes...
 ];
 

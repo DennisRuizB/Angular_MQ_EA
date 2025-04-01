@@ -195,5 +195,9 @@ ViewProfile(item: any) {
   this.router.navigate(['/profile', item._id]);
 }
 
+onComments(){
+  this.router.navigate(['/comments']);
+}
+
 
 }

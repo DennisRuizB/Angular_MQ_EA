@@ -1,0 +1,16 @@
+
+<div class="create-user-modal-container">
+    <h2>Crear Nuevo Comment</h2>
+    <form [formGroup]="createCommentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="order_id">OrderId</label>
+        <input id="order_id" formControlName="order_id" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="comment">Comentario</label>
+        <input id="comment" formControlName="comment" type="text" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Usuario</button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+    </form>
+  </div>

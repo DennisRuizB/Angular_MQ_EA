@@ -1,0 +1,91 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0; /* Eliminar margen superior */
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    cursor: pointer;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #e9e9e9;
+  }
+  
+  button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .pagination-controls label {
+    margin-right: 0.5rem;
+  }
+  
+  .pagination-controls select {
+    margin-right: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .pagination-controls button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .pagination-controls span {
+    margin-right: 0.5rem; /* Añadir margen izquierdo al span */
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .button-container button {
+    margin-bottom: 5px; /* Espacio entre los botones */
+  }
+  
+  .inactive {
+    background-color: rgba(255, 0, 0, 0.558);
+  }
+  .search-input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
